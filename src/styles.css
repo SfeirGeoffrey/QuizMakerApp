@@ -1,0 +1,19 @@
+.title {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position:relative;
+}
+
+.route-button {
+    margin: 30px;
+    width: 300px;
+    background-color: grey;
+    color: white;
+    border-color: grey;
+    border-radius: 5px;
+}

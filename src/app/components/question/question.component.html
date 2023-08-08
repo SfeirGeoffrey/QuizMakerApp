@@ -1,0 +1,8 @@
+<div class="center">
+    <p>{{question.question}}</p>
+</div>
+<div class="center">
+    <div *ngFor="let answer of question.mixed_answers" >
+        <button [buttonHighlight]="buttonColor" [ngClass]="determineBackgroundColor(answer)" (click)=selectAnswer(answer) class ="answer-button">{{answer}}</button>
+    </div>
+</div>

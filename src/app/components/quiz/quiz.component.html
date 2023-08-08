@@ -1,0 +1,28 @@
+<h1 class="title"> QUIZ MAKER</h1>
+
+<div class="container">
+    <select [(ngModel)]="categorySelected" id="categorySelect" id="categorySelect" class ="item">
+        <option [value]="null" selected disabled >Select a category</option>
+        <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
+    </select>
+    <select [(ngModel)]="difficultySelected" name="difficultySelect" id="difficultySelect" class ="item">
+        <option [value]="null" selected disabled >Select difficulty</option>
+        <option *ngFor="let difficulty of difficulties" [value]="difficulty.value">{{difficulty.label}}</option>
+    </select>
+    <button [buttonHighlight]="colorCreateButtonColor" [disabled]="!this.categorySelected || !this.difficultySelected" id="createBtn" class ="item" (click)=createQuiz()>Create</button>
+</div>
+
+<ng-container *ngIf="questionService.questionnaire !== null && questionService.questionnaire.length > 0" >
+    
+    <div *ngFor="let question of questionService.questionnaire">
+        <app-question [question]="question" [displayResult]="false"></app-question>
+    </div>
+
+    <div *ngIf=questionService.isQuestionnaireCompleted() class="container">
+        <button routerLink="/results" class="route-button">submit</button>
+    </div>
+</ng-container>
+
+
+
+

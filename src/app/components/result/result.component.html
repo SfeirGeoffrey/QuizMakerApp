@@ -1,0 +1,18 @@
+<h1 class="title"> RESULTS</h1>
+
+<ng-container *ngIf="questionService.questionnaire !== null && questionService.questionnaire.length > 0" >
+    
+    <div *ngFor="let question of questionService.questionnaire">
+        <app-question [question]="question" [displayResult]="true"></app-question>
+    </div>
+
+    <div class="container">
+        <p [ngStyle]="{'background-color':questionService.nbCorrectAnswers > 1 ? questionService.nbCorrectAnswers > 3 ? 'green' : 'yellow' : 'red' }">
+            You scored {{questionService.nbCorrectAnswers}} out of {{questionService.questionnaire.length}}
+        </p>
+    </div>
+
+    <div class="container">
+        <button (click)="createNewQuiz()" class="route-button">Create a new quiz</button>
+    </div>
+</ng-container>
